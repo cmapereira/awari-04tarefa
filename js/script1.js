@@ -22,11 +22,10 @@ const posts = [
 //getting element from HTML
 var wrapper = document.getElementById("js-posts");
 
-//iterating over the array
+
+/* USING FOR 
 for (var i = 0; i < posts.length; i++){
   var data = posts[i];
-
-//rendering posts info 
   var template = `<div class="card-post">
                     <div class="card-title">
                       <h3>${ data.title }</h3>
@@ -42,3 +41,37 @@ for (var i = 0; i < posts.length; i++){
   wrapper.innerHTML += template;
 };
 
+USING MAP
+posts.map((el)=>{
+  var template = `<div class="card-post">
+                  <div class="card-title">
+                    <h3>${ el.title }</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>${ el.resume }</p>
+                  </div>
+                  <div class="card-btn">
+                    <a href="${el.href}">Saiba Mais</a>
+                  </div>
+                </div>
+                `
+    wrapper.innerHTML += template;
+});
+*/
+
+// USING FOR OF
+for (post of posts){
+  var template = `<div class="card-post">
+                    <div class="card-title">
+                      <h3>${ post.title }</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>${ post.resume }</p>
+                    </div>
+                    <div class="card-btn">
+                      <a href="${post.href}">Saiba Mais</a>
+                    </div>
+                  </div>
+                  `
+  wrapper.innerHTML += template;
+};
